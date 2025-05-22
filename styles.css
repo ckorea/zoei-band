@@ -1,7 +1,8 @@
+
 :root {
   --bg: #fffdfa;
   --text: #1a1a1a;
-  --accent: #ec4899;
+  --accent: #c048ec;
   --soft: #f5f5f5;
   --fun: #ffdd57;
   --font-main: 'Inter', 'Helvetica Neue', sans-serif;
@@ -71,16 +72,39 @@ main {
   margin-top: 2rem;
 }
 
-.hero h2 {
+.hero h2, .content h2 {
   font-size: 1.75rem;
   margin-bottom: 0.5rem;
   text-align: center;
 }
 
-.hero p {
+.hero p, .content p, .content ul {
   text-align: center;
   font-size: 1rem;
   color: #444;
+  margin-bottom: 1rem;
+}
+
+.content ul {
+  padding-left: 1.2rem;
+  list-style: disc;
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto 1rem auto;
+}
+
+.placeholder {
+  width: 100%;
+  max-width: 500px;
+  height: 200px;
+  margin: 1rem auto;
+  background: var(--soft);
+  border: 2px dashed var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  color: #999;
 }
 
 .zany {
@@ -100,4 +124,14 @@ footer {
   margin-top: 2rem;
   padding: 1rem 0;
   border-top: 1px solid #eee;
+}
+
+.under-construction {
+  text-align: center;
+  background: var(--fun);
+  color: black;
+  font-weight: bold;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  margin-top: 2rem;
 }
