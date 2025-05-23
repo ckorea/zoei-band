@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <script>
+  const allowed = prompt("Enter the password to enter the ZOEI zone:");
+  if (allowed !== "hyperfocus") {
+    document.body.innerHTML = "<h1 style='text-align:center;'>Access denied.</h1>";
+  }
+</script>
   <header>
     <h1>zoei</h1>
     <p class="tagline">zoning out effective immediately</p>
