@@ -8,22 +8,14 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #2c3e50;
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
 }
 
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Chrome-like texture overlay */
+/* Hazy overlay with sparkles */
 body::before {
     content: '';
     position: fixed;
@@ -32,25 +24,38 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
-        linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.05) 50%, transparent 55%);
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 20px 120px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(2px 2px at 200px 100px, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(1px 1px at 50px 160px, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(2px 2px at 300px 50px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 250px 140px, rgba(255, 255, 255, 0.6), transparent),
+        linear-gradient(45deg, rgba(106, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.2) 100%);
     pointer-events: none;
     z-index: -1;
+    animation: sparkle 8s ease-in-out infinite alternate;
+}
+
+@keyframes sparkle {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; }
 }
 
 /* Navigation */
 nav {
     position: sticky;
     top: 0;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 1rem 2rem;
     transform: rotate(-0.3deg);
     margin: -0.5rem -1rem 2rem -1rem;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    box-shadow: 0 8px 32px rgba(106, 126, 234, 0.3);
     z-index: 100;
 }
 
@@ -64,7 +69,7 @@ nav ul {
 }
 
 nav a {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
     font-family: 'Comfortaa', cursive;
     font-size: 1.4rem;
@@ -75,14 +80,14 @@ nav a {
     transform: rotate(-0.5deg);
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 nav a:hover {
     color: #fff;
     transform: rotate(0.5deg) scale(1.05) translateY(-2px);
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(106, 126, 234, 0.4);
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
 
@@ -101,29 +106,29 @@ header {
     max-width: 400px;
     width: 100%;
     height: auto;
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 8px 16px rgba(106, 126, 234, 0.4));
     transform: rotate(-1deg);
     transition: all 0.4s ease;
 }
 
 .band-logo:hover {
     transform: rotate(1deg) scale(1.05);
-    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 12px 24px rgba(106, 126, 234, 0.6));
 }
 
 .tagline {
     font-family: 'Comfortaa', cursive;
     font-size: 1.4rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     font-weight: 400;
     transform: rotate(0.5deg);
     margin-bottom: 2rem;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 8px rgba(106, 126, 234, 0.5);
     background: rgba(255, 255, 255, 0.1);
     padding: 1rem 2rem;
     border-radius: 25px;
     display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
 }
 
@@ -136,7 +141,7 @@ header {
     font-size: 3rem;
     opacity: 0.8;
     animation: peek 4s ease-in-out infinite;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 4px 8px rgba(106, 126, 234, 0.4));
 }
 
 @keyframes peek {
@@ -160,18 +165,7 @@ header {
     margin-bottom: 2rem;
     transform: rotate(-0.5deg);
     position: relative;
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientText 8s ease infinite;
-}
-
-@keyframes gradientText {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    text-shadow: 0 4px 12px rgba(106, 126, 234, 0.6);
 }
 
 .section-header::after {
@@ -181,7 +175,6 @@ header {
     color: rgba(255, 255, 255, 0.7);
     margin-top: 1rem;
     opacity: 0.8;
-    -webkit-text-fill-color: rgba(255, 255, 255, 0.7);
 }
 
 /* Music section */
@@ -193,15 +186,15 @@ header {
 }
 
 .album-card {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     padding: 2rem;
     transform: rotate(-0.5deg);
     transition: all 0.4s ease;
     position: relative;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    box-shadow: 0 8px 32px rgba(106, 126, 234, 0.3);
 }
 
 .album-card:nth-child(even) {
@@ -210,8 +203,8 @@ header {
 
 .album-card:hover {
     transform: scale(1.05) rotate(0deg) translateY(-5px);
-    box-shadow: 0 16px 48px rgba(31, 38, 135, 0.5);
-    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 16px 48px rgba(106, 126, 234, 0.4);
+    background: rgba(255, 255, 255, 0.18);
 }
 
 .album-title {
@@ -219,7 +212,7 @@ header {
     font-size: 2.2rem;
     color: rgba(255, 255, 255, 0.95);
     margin-bottom: 1rem;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 8px rgba(106, 126, 234, 0.5);
 }
 
 .album-card p {
@@ -231,14 +224,14 @@ header {
 
 /* Tour dates */
 .tour-dates {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(15px);
-    border-left: 5px solid rgba(255, 255, 255, 0.5);
+    border-left: 5px solid rgba(255, 255, 255, 0.4);
     border-radius: 15px;
     padding: 2rem;
     margin: 2rem 0;
     transform: rotate(0.3deg);
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    box-shadow: 0 8px 32px rgba(106, 126, 234, 0.25);
 }
 
 .tour-date {
@@ -246,7 +239,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 0;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
     flex-wrap: wrap;
 }
 
@@ -270,7 +263,7 @@ header {
 /* Buttons */
 .cta-button {
     display: inline-block;
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -282,16 +275,16 @@ header {
     cursor: pointer;
     transition: all 0.4s ease;
     transform: rotate(-0.5deg);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 20px rgba(106, 126, 234, 0.4);
     margin: 1rem 0.5rem;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
 }
 
 .cta-button:hover {
-    background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
     transform: rotate(0.5deg) scale(1.05) translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(106, 126, 234, 0.5);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
@@ -307,7 +300,7 @@ header {
 .band-photo {
     width: 100%;
     height: 300px;
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -315,35 +308,35 @@ header {
     font-size: 4rem;
     color: white;
     transform: rotate(-1deg);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 30px rgba(106, 126, 234, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .bio {
     font-size: 1.1rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.9);
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(15px);
     padding: 2rem;
     border-radius: 20px;
     transform: rotate(0.3deg);
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(106, 126, 234, 0.25);
 }
 
 /* Contact section */
 .contact-card {
     text-align: center;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(20px);
     border-radius: 20px;
     transform: rotate(-0.3deg);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(106, 126, 234, 0.3);
 }
 
 .contact-intro {
@@ -378,7 +371,7 @@ header {
 
 /* Footer */
 footer {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(20px);
     color: rgba(255, 255, 255, 0.9);
     text-align: center;
@@ -387,7 +380,7 @@ footer {
     position: relative;
     transform: rotate(-0.2deg);
     margin: 4rem -1rem -1rem -1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .footer-symbols {
@@ -412,15 +405,15 @@ footer {
     transition: all 0.4s ease;
     padding: 0.8rem;
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(10px);
 }
 
 .social-links a:hover {
     color: #fff;
     transform: rotate(1deg) scale(1.2) translateY(-3px);
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 20px rgba(106, 126, 234, 0.4);
 }
 
 .footer-tagline {
@@ -433,7 +426,7 @@ footer {
 /* Decorative elements */
 .spiral {
     position: fixed;
-    color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.08);
     font-size: 3rem;
     animation: spiral 20s linear infinite;
     pointer-events: none;
@@ -515,6 +508,10 @@ footer {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+    
+    body::before {
+        animation: none;
     }
 }
 
