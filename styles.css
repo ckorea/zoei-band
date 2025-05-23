@@ -68,6 +68,11 @@ nav a {
   transition: all 0.2s ease-in-out;
 }
 
+nav a.active {
+  border-bottom: 2px solid var(--accent);
+  color: var(--accent);
+}
+
 nav a:hover {
   border-bottom: 2px solid var(--accent);
   transform: scale(1.05);
