@@ -9,38 +9,57 @@
 </head>
 <body>
   <script>
-  const allowed = prompt("Enter the password to enter the ZOEI zone:");
-  if (allowed !== "hyperfocus") {
-    document.body.innerHTML = "<h1 style='text-align:center;'>Access denied.</h1>";
-  }
-</script>
-  <header>
-    <h1>zoei</h1>
-    <p class="tagline">zoning out effective immediately</p>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">home</a></li>
-        <li><a href="music.html">music</a></li>
-        <li><a href="about.html">about</a></li>
-        <li><a href="tour.html">tour</a></li>
-        <li><a href="merch.html">merch</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="hero">
-      <h2>welcome to the zone</h2>
-      <p>we’re zoei — an alt/prog rock band forming slowly, loudly, and a little out of tune. currently under construction (like this site), but the vibes are immaculate.</p>
-    </section>
-    <section class="zany">
-      <p>today’s vibe: <strong>space-out-core with a dash of late-stage serotonin</strong></p>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 zoei.band — built in a burst of hyperfocus, maintained in naps</p>
-  </footer>
-  <div class="under-construction">
-    this site is under construction but vibes are very real.
+    const correctPassword = "hyperfocus";
+    const entered = localStorage.getItem("zoei_access");
+
+    function grantAccess() {
+      document.getElementById("site").style.display = "block";
+    }
+
+    if (entered === correctPassword) {
+      grantAccess();
+    } else {
+      const userInput = prompt("Enter the password to enter the ZOEI zone:");
+      if (userInput === correctPassword) {
+        localStorage.setItem("zoei_access", correctPassword);
+        grantAccess();
+      } else {
+        document.write("<h1 style='text-align:center;'>Access denied.</h1>");
+      }
+    }
+  </script>
+
+  <div id="site" style="display: none;">
+    <header>
+      <h1>zoei</h1>
+      <p class="tagline">zoning out effective immediately</p>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">home</a></li>
+          <li><a href="music.html">music</a></li>
+          <li><a href="about.html">about</a></li>
+          <li><a href="tour.html">tour</a></li>
+          <li><a href="merch.html">merch</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h2>welcome to the zone</h2>
+        <p>we’re zoei — an alt/prog rock band forming slowly, loudly, and a little out of tune. currently under construction (like this site), but the vibes are immaculate.</p>
+      </section>
+      <section class="zany">
+        <p>today’s vibe: <strong>space-out-core with a dash of late-stage serotonin</strong></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 zoei.band — built in a burst of hyperfocus, maintained in naps</p>
+    </footer>
+    <div class="under-construction">
+      this site is under construction but vibes are very real.
+    </div>
   </div>
 </body>
 </html>
