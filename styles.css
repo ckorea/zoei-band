@@ -1,15 +1,14 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=IBM+Plex+Mono&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Rubik+Mono+One&display=swap');
 
 :root {
-  --bg: #fffdfa;
-  --text: #1e1e1e;
-  --accent: #ec4899;
-  --soft: #f1f1f1;
+  --bg: #fffafc;
+  --text: #1a1a1a;
+  --accent: #a855f7;
+  --soft: #f0e9ff;
   --fun: #ffdd57;
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-body: 'IBM Plex Mono', monospace;
-  --font-silly: 'Pacifico', cursive;
+  --font-heading: 'Rubik Mono One', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 
 * {
@@ -39,14 +38,17 @@ h1 {
   font-family: var(--font-heading);
   font-size: 3rem;
   color: var(--accent);
-  letter-spacing: -1px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #7e22ce, 4px 4px 0 #6b21a8;
+  transform: rotate(-1deg);
+  display: inline-block;
 }
 
 .tagline {
-  margin-top: 0.25rem;
-  font-family: var(--font-silly);
-  font-size: 1.2rem;
+  margin-top: 0.3rem;
+  font-size: 1.1rem;
   color: #666;
+  font-style: italic;
 }
 
 nav ul {
@@ -61,21 +63,17 @@ nav ul {
 nav a {
   text-decoration: none;
   color: var(--text);
+  font-weight: bold;
   font-family: var(--font-heading);
-  font-weight: 700;
-  padding: 0.5rem;
+  padding: 0.4rem 0.6rem;
   border-bottom: 2px solid transparent;
   transition: all 0.2s ease-in-out;
 }
 
+nav a:hover,
 nav a.active {
   border-bottom: 2px solid var(--accent);
   color: var(--accent);
-}
-
-nav a:hover {
-  border-bottom: 2px solid var(--accent);
-  transform: scale(1.05);
 }
 
 main {
@@ -89,10 +87,9 @@ main {
 .hero h2, .content h2 {
   font-family: var(--font-heading);
   font-size: 2rem;
-  margin-bottom: 0.5rem;
   text-align: center;
-  text-transform: lowercase;
-  letter-spacing: -0.5px;
+  margin-bottom: 0.5rem;
+  color: #444;
 }
 
 .hero p, .content p, .content ul {
@@ -127,9 +124,9 @@ main {
 .zany {
   background-color: var(--soft);
   padding: 1rem;
-  border-left: 5px dotted var(--fun);
+  border-left: 5px dashed var(--fun);
   font-weight: bold;
-  font-family: var(--font-silly);
+  font-family: var(--font-body);
   margin: 0 auto;
   max-width: 600px;
 }
