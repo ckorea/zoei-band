@@ -1,103 +1,142 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>zoei.band</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOEI - Zoning Out Effective Immediately</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="zoei-zone" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#fffafc;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;">
-  <h1 style="font-family:'Rubik Mono One', sans-serif;font-size:3rem;color:#a855f7;text-shadow:2px 2px 0 #7e22ce, 4px 4px 0 #6b21a8;">ZOEI ZONE</h1>
-  <p style="margin:1rem 0;font-family:'DM Sans', sans-serif;">Enter the secret password to zone in:</p>
-  <input id="passwordInput" type="password" placeholder="password" style="padding:0.5rem 1rem;border:2px solid #a855f7;border-radius:4px;font-size:1rem;font-family:'DM Sans', sans-serif;" />
-  <button id="submitBtn" style="margin-top:1rem;padding:0.5rem 1.5rem;background:#a855f7;color:#fff;border:none;border-radius:4px;font-family:'Rubik Mono One', sans-serif;cursor:pointer;">Enter</button>
-  <p id="errorMsg" style="display:none;margin-top:1rem;color:red;font-family:'DM Sans', sans-serif;">Wrong password. Try again.</p>
-</div>
-
-<script>
-  const correctPassword = "hyperfocus";
-  const entered = localStorage.getItem("zoei_access");
-
-  function unlockSite() {
-    document.getElementById("zoei-zone").style.display = "none";
-    document.getElementById("site").style.display = "block";
-  }
-
-  window.onload = function () {
-    const overlay = document.getElementById("zoei-zone");
-
-    if (entered === correctPassword) {
-      unlockSite();
-    } else {
-      const input = document.getElementById("passwordInput");
-      const button = document.getElementById("submitBtn");
-
-      button.addEventListener("click", () => {
-        if (input.value === correctPassword) {
-          localStorage.setItem("zoei_access", correctPassword);
-          unlockSite();
-        } else {
-          document.getElementById("errorMsg").style.display = "block";
-        }
-      });
-    }
-  };
-</script>
-
-  <script>
-    const correctPassword = "hyperfocus";
-    const entered = localStorage.getItem("zoei_access");
-
-    function grantAccess() {
-      document.getElementById("site").style.display = "block";
-    }
-
-    if (entered === correctPassword) {
-      grantAccess();
-    } else {
-      const userInput = prompt("Enter the password to enter the ZOEI zone:");
-      if (userInput === correctPassword) {
-        localStorage.setItem("zoei_access", correctPassword);
-        grantAccess();
-      } else {
-        document.write("<h1 style='text-align:center;'>Access denied.</h1>");
-      }
-    }
-  </script>
-
-  <div id="site" style="display: none;">
-    <header>
-      <h1>zoei</h1>
-      <p class="tagline">zoning out effective immediately</p>
-      <nav>
+    <!-- Decorative spirals -->
+    <div class="spiral">◐</div>
+    <div class="spiral">☽</div>
+    <div class="spiral">✦</div>
+    
+    <nav>
         <ul>
-          <li><a href="index.html" class="active">home</a></li>
-          <li><a href="music.html">music</a></li>
-          <li><a href="about.html">about</a></li>
-          <li><a href="tour.html">tour</a></li>
-          <li><a href="merch.html">merch</a></li>
+            <li><a href="#music">music</a></li>
+            <li><a href="#tour">tour</a></li>
+            <li><a href="#about">about</a></li>
+            <li><a href="#merch">merch</a></li>
+            <li><a href="#contact">contact</a></li>
         </ul>
-      </nav>
+    </nav>
+    
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="ZOEI Band Logo" class="band-logo">
+        </div>
+        <p class="tagline">~ zoning out effective immediately ~</p>
+        <div class="panda-peek">🐼</div>
     </header>
-
+    
     <main>
-      <section class="hero">
-        <h2>welcome to the zone</h2>
-        <p>we’re zoei — an alt/prog rock band forming slowly, loudly, and a little out of tune. currently under construction (like this site), but the vibes are immaculate.</p>
-      </section>
-      <section class="zany">
-        <p>today’s vibe: <strong>space-out-core with a dash of late-stage serotonin</strong></p>
-      </section>
+        <section id="music" class="section">
+            <h2 class="section-header">music</h2>
+            <div class="music-grid">
+                <div class="album-card">
+                    <h3 class="album-title">Cosmic Brew</h3>
+                    <p>Our latest EP - seven tracks of ethereal prog rock that'll transport you to another dimension. Recorded live in a converted barn under the full moon.</p>
+                    <a href="#" class="cta-button">Listen Now</a>
+                </div>
+                <div class="album-card">
+                    <h3 class="album-title">Village Stories</h3>
+                    <p>Debut album exploring themes of community, spirituality, and the spaces between worlds. Features field recordings from coffeehouses across three continents.</p>
+                    <a href="#" class="cta-button">Stream</a>
+                </div>
+                <div class="album-card">
+                    <h3 class="album-title">Sunday Morning Mantra</h3>
+                    <p>An acoustic meditation on modern mysticism. Perfect for sunrise yoga or 3am contemplation sessions.</p>
+                    <a href="#" class="cta-button">Download</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="tour" class="section">
+            <h2 class="section-header">tour</h2>
+            <div class="tour-dates">
+                <div class="tour-date">
+                    <span class="date">June 15</span>
+                    <span class="venue">The Mystic Bean • Portland, OR</span>
+                    <a href="#" class="cta-button">Tickets</a>
+                </div>
+                <div class="tour-date">
+                    <span class="date">June 22</span>
+                    <span class="venue">Sacred Grounds Café • Asheville, NC</span>
+                    <a href="#" class="cta-button">Tickets</a>
+                </div>
+                <div class="tour-date">
+                    <span class="date">July 3</span>
+                    <span class="venue">Moonrise Festival • Chicago, IL</span>
+                    <a href="#" class="cta-button">Tickets</a>
+                </div>
+                <div class="tour-date">
+                    <span class="date">July 18</span>
+                    <span class="venue">Karma Coffee House • Austin, TX</span>
+                    <a href="#" class="cta-button">Tickets</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="section">
+            <h2 class="section-header">about</h2>
+            <div class="about-content">
+                <div class="band-photo">
+                    🎸🥁🎹🐼
+                </div>
+                <div class="bio">
+                    <p>ZOEI emerged from late-night coffeehouse sessions and shared dreams of sonic transcendence. We're four kindred spirits who found each other through a love of complex rhythms, ethereal melodies, and the spaces where folk wisdom meets progressive rock.</p>
+                    
+                    <p>Our sound draws from global traditions - tabla rhythms, Celtic melodies, Middle Eastern scales - woven together with modern production and a distinctly analog warmth. Think Radiohead meeting Joni Mitchell at a monastery, with our mascot panda providing moral support.</p>
+                    
+                    <p>Every song is an invitation to zone out, tune in, and find your center in an increasingly chaotic world. We believe music is medicine, community is sacred, and there's magic in the margins.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="merch" class="section">
+            <h2 class="section-header">merch</h2>
+            <div class="music-grid">
+                <div class="album-card">
+                    <h3 class="album-title">ZOEI Panda Tee</h3>
+                    <p>Hand-screened on organic cotton with soy-based inks. Our beloved mascot surrounded by sacred geometry and good vibes.</p>
+                    <a href="#" class="cta-button">$25</a>
+                </div>
+                <div class="album-card">
+                    <h3 class="album-title">Cosmic Brew Vinyl</h3>
+                    <p>Limited edition pressing on galaxy-swirl vinyl. Includes hand-drawn liner notes and a packet of chamomile tea.</p>
+                    <a href="#" class="cta-button">$30</a>
+                </div>
+                <div class="album-card">
+                    <h3 class="album-title">Meditation Mug</h3>
+                    <p>Handmade ceramic mug perfect for morning coffee or evening tea ceremonies. Features our signature spiral design.</p>
+                    <a href="#" class="cta-button">$18</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="section">
+            <h2 class="section-header">contact</h2>
+            <div class="contact-card">
+                <p class="contact-intro">Let's create something beautiful together</p>
+                <p>Booking: <a href="mailto:bookings@zoeiband.com">bookings@zoeiband.com</a></p>
+                <p>General inquiries: <a href="mailto:hello@zoeiband.com">hello@zoeiband.com</a></p>
+                <p class="contact-footer">or find us at your local coffeehouse 🐼</p>
+            </div>
+        </section>
     </main>
-
+    
     <footer>
-      <p>&copy; 2025 zoei.band — built in a burst of hyperfocus, maintained in naps</p>
+        <div class="footer-symbols">☽ ◉ 🌿 ✧ ☾</div>
+        <p>&copy; 2025 ZOEI • Made with love in the spaces between</p>
+        <div class="social-links">
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="#" aria-label="Spotify">🎵</a>
+            <a href="#" aria-label="Bandcamp">🎧</a>
+            <a href="#" aria-label="YouTube">📺</a>
+            <a href="#" aria-label="Email">✉️</a>
+        </div>
+        <p class="footer-tagline">zoning out effective immediately since 2023</p>
     </footer>
-    <div class="under-construction">
-      this site is under construction but vibes are very real.
-    </div>
-  </div>
 </body>
 </html>
